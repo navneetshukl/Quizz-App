@@ -37,9 +37,11 @@ func GetCategory(c *gin.Context) {
 	questions:=[]models.QUESTIONS{}
 	db,_:=database.ConnectToDatabase()
 	db.Where("category = ?",option).Find(&questions)
-	/*c.JSON(200,gin.H{
-		"data":questions,
-	})*/
+	length:=len(questions)
+	for i := 0; i < length; i++ {
+		questions[i].Number=i+1
+		
+	}
 	c.HTML(200,"quiz.html",gin.H{
 		"data":questions,
 	})
@@ -58,6 +60,7 @@ func AddQuestions(c *gin.Context) {
 	option3 := c.PostForm("option3")
 	option4 := c.PostForm("option4")
 	answer := c.PostForm("answer")
+	number:=1
 
 	db,err:=database.ConnectToDatabase()
 	if err!=nil{
@@ -74,6 +77,7 @@ func AddQuestions(c *gin.Context) {
 		Option3:option3,
 		Option4:option4,
 		Answer:answer,
+		Number:number,
 	}
 	cat:=&models.CATEGORIES{
 		Category: category,
