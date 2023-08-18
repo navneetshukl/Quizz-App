@@ -34,7 +34,15 @@ func PostHome(c *gin.Context) {
 
 func GetCategory(c *gin.Context) {
 	option := c.Param("option")
-	c.String(http.StatusOK, "Option selected: %s", option)
+	questions:=[]models.QUESTIONS{}
+	db,_:=database.ConnectToDatabase()
+	db.Where("category = ?",option).Find(&questions)
+	/*c.JSON(200,gin.H{
+		"data":questions,
+	})*/
+	c.HTML(200,"quiz.html",gin.H{
+		"data":questions,
+	})
 }
 
 func GetQuestion(c *gin.Context) {
