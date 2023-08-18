@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Quizz-App/database"
 	"Quizz-App/routes"
 
 	"github.com/gin-gonic/gin"
@@ -9,6 +10,7 @@ import (
 func main() {
 	router := gin.Default()
 	router.LoadHTMLGlob("./templates/*")
+	database.MigrateDatabase()
 
 	router.GET("/", routes.GetHome)
 
