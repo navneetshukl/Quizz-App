@@ -18,5 +18,9 @@ func main() {
 
 	router.GET("/:option", routes.GetCategory)
 
+	router.GET("/addquestions",routes.GetQuestion)
+
+	router.POST("/addquestions",routes.AddQuestions)
+
 	router.Run(":8080")
 }

@@ -12,3 +12,7 @@ type QUESTIONS struct {
 	Option4  string `json:"option4"`
 	Answer   string `json:"answer"`
 }
+type CATEGORIES struct{
+	gorm.Model
+	Category string `json:"category" gorm:"not null;unique"`
+}
