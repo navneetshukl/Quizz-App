@@ -1,0 +1,100 @@
+<!-- quiz.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <title>Quiz App</title>
+  <style>
+    /* Customize your color scheme here */
+    body {
+      background-color: #f4f4f4;
+    }
+    .question-box {
+      margin-bottom: 2rem;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .question {
+      font-size: 1.2rem; /* Adjust the font size for the question */
+      margin-bottom: 1rem; /* Add some spacing between question and options */
+      font-weight: bold; /* Make the question text bold */
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-left: 1.5rem; /* Adjust the left margin */
+    }
+    .option-container {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0.5rem;
+    }
+    .radio {
+      display: flex;
+      align-items: flex-start;
+    }
+    .radio .label {
+      margin: 0; /* Reset margin to ensure consistent left margin */
+      font-weight: normal; /* Make the options text regular */
+    }
+    .radio input {
+      margin-top: 0.1rem;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title has-text-centered">Quiz App</h1>
+      
+      {{ range $key, $value := .data }}
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="box question-box">
+            <p class="subtitle">Question {{ $value.Number }}:</p>
+            <p class="question">{{ $value.Question }}</p>
+            <div class="field">
+              <div class="control">
+                <div class="options"> <!-- Removed options-grid class -->
+                  <div class="option-container">
+                    <label class="radio">
+                      <input type="radio" name="q{{ $key }}" value="{{ $value.Option1 }}">
+                      <span class="label">{{ $value.Option1 }}</span>
+                    </label>
+                  </div>
+                  <div class="option-container">
+                    <label class="radio">
+                      <input type="radio" name="q{{ $key }}" value="{{ $value.Option2 }}">
+                      <span class="label">{{ $value.Option2 }}</span>
+                    </label>
+                  </div>
+                  <div class="option-container">
+                    <label class="radio">
+                      <input type="radio" name="q{{ $key }}" value="{{ $value.Option3 }}">
+                      <span class="label">{{ $value.Option3 }}</span>
+                    </label>
+                  </div>
+                  <div class="option-container">
+                    <label class="radio">
+                      <input type="radio" name="q{{ $key }}" value="{{ $value.Option4 }}">
+                      <span class="label">{{ $value.Option4 }}</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+</body>
+</html>

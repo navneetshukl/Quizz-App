@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <title>Categories</title>
+  <style>
+    .pink-container {
+      background-color: rgb(130, 134, 238);
+      padding: 15rem;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero is-fullheight has-background-info-light">
+    <h1 class="title has-text-centered">Select A Quiz Category</h1>
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="box pink-container">
+              <form method="post" action="/">
+                <div class="field has-text-centered">
+                  <div class="control">
+                    <div class="select is-rounded is-large">
+                      <select name="option">
+
+                        {{ range .data}}
+
+                        <option value="{{ . }}" class="is-primary">{{ . }}</option>
+
+                        {{ end }}
+                        
+                      </select>
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="field has-text-centered">
+                  <div class="control">
+                    <button class="button is-primary" type="submit">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

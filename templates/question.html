@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <title>Beautiful Form with Bulma</title>
+</head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="box">
+          <h1 class="title has-text-centered">Question Form</h1>
+          <form method="post" action="/addquestions">
+            <div class="field">
+              <label class="label">Category for Questions</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Enter category" required name="category">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Question</label>
+              <div class="control">
+                <textarea class="textarea" placeholder="Enter your question" required name="question"></textarea>
+              </div>
+            </div>
+            
+
+            <div class="field">
+              <label class="label">Options</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Option 1" required name="option1">
+                <input class="input" type="text" placeholder="Option 2" required name="option2">
+                <input class="input" type="text" placeholder="Option 3" required name="option3">
+                <input class="input" type="text" placeholder="Option 4" required name="option4">
+              </div>
+            </div>
+
+           
+
+            <div class="field">
+              <label class="label">Correct Option</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Enter the correct option" required name="answer">
+              </div>
+            </div>
+            <div class="field is-grouped is-grouped-centered">
+              <div class="control">
+                <button class="button is-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
